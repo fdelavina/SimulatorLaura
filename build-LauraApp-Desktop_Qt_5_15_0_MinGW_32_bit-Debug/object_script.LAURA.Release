@@ -1,0 +1,15 @@
+release/mainwindow.o
+release/geometry.o
+release/rectangle.o
+release/material.o
+release/materialProperty.o
+release/.o
+release/conductivityelectric.o
+release/propelectric.o
+release/matelectricproperty.o
+release/poromatelectricproperty.o
+release/tempmatelectricproperty.o
+release/dvrfunctions.o
+release/dvrmatrix.o
+release/main.o
+release/moc_mainwindow.o

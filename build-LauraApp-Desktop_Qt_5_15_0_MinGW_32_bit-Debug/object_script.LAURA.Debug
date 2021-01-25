@@ -1,0 +1,15 @@
+debug/mainwindow.o
+debug/geometry.o
+debug/rectangle.o
+debug/material.o
+debug/materialProperty.o
+debug/.o
+debug/conductivityelectric.o
+debug/propelectric.o
+debug/matelectricproperty.o
+debug/poromatelectricproperty.o
+debug/tempmatelectricproperty.o
+debug/dvrfunctions.o
+debug/dvrmatrix.o
+debug/main.o
+debug/moc_mainwindow.o
