@@ -8,13 +8,13 @@ class MatElectricProperty: public MaterialProperty
 {
 protected:
 
-    DVRMatrix *SigmaElectric; //bulk electric conductivity temperature dependant sigma=c(n)*T^n+c(n-1)*T^n-1+...
-                              //we save the parameters c
+    DVRMatrix *BulkElectricConductivity; //bulk electric conductivity temperature dependant sigma=c(n)*T^n+c(n-1)*T^n-1+...
+                                     //we save the parameters c
     //
-    //                                       _c_
+    //                                        _c_
     //                                      | 1     |
     //                                      | 0.4   |
-    //                       SigmaElectric =| 1.84  |  ->  SigmaElectric= 1*T^2+0.4*T+1.84
+    //                ElectricConductivity =| 1.84  |  ->  ElectricConductivity= 1*T^2+0.4*T+1.84
     //                                      |       |
     //                                      |       |
     //                                      |       |
@@ -24,20 +24,22 @@ protected:
 
 public:
 
-    MatElectricProperty(DVRMatrix *_SigmaElectric);
+    MatElectricProperty(DVRMatrix *_BulkSigmaElectric);
 
-    void       SetSigmaElectric (DVRMatrix *_SigmaElectric);
-    DVRMatrix* ShowSigmaElectric();
+    void       SetSigmaElectric (DVRMatrix *_BulkSigmaElectric);
+    DVRMatrix* GetSigmaElectric();
 
-    virtual void SetMaterialTime  ()  ; // Set Material Time: TimeDependant or not
-    virtual void SetMaterialLinear()  ; // Set lineal or no linear material
-    virtual void SetMaterialType  ()  ;    // Set Mechanics, Thermal or Electric
 
-    virtual QString ShowMaterialTime  ()  ; // Set Material Time: TimeDependant or not
-    virtual QString ShowMaterialLinear()  ; // Set lineal or no linear material
-    virtual QString ShowMaterialType  ()  ; // Set Mechanics, Thermal or Electric
 
 
 };
+
+
+class MatPorosiElectricProperty : public MatElectricProperty
+{
+protected:
+    DVRMatrix *Cvv //function applied to BulkElectricConductivity
+};
+
 
 #endif // MATELECTRICPROPERTY_H

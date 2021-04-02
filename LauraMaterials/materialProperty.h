@@ -15,27 +15,40 @@
                                                 1. Mechanic
                                                 2. Electric
                                                 3. Thermal
- */
+
+
+  Posibilities:
+    MaterialTime   = (Undefined,Yes,No)
+    MaterialTemp   = (Undefined,Yes,No)
+    MaterialLinear = (Undefined,Yes,No)
+    MaterialType   = (Undefined,Mechanic,Electric, Thermal)
+
+*/
 
 class MaterialProperty
 {
 protected:
-    QString MaterialTime   ;
-    QString MaterialLinear ;
-    QString MaterialType   ;
+    std::string MaterialTime   ;
+    std::string MaterialTemp   ;
+    std::string MaterialLinear ;
+    std::string MaterialType   ;
+
 public:
-    MaterialProperty(): MaterialTime  ( "undefined" ),
-                        MaterialLinear( "undefined" ),
-                        MaterialType  ( "undefined" )
-    {};
+    MaterialProperty();
+    MaterialProperty(std::string _MatTime,
+                     std::string _MatTemp,
+                     std::string _MatLin,
+                     std::string _MatType);
 
-    virtual void SetMaterialTime  (  ) = 0 ; // Set Material Time: TimeDependant or not
-    virtual void SetMaterialLinear(  ) = 0 ; // Set lineal or no linear material
-    virtual void SetMaterialType  (  ) = 0 ; // Set Mechanics, Thermal or Electric
+    void SetMaterialTime  (std::string  )  ; // Set Material Time: TimeDependant or not
+    void SetMaterialTemp  (std::string  )  ; // Set Material Temp: their properties can be temperature dependant
+    void SetMaterialLinear(std::string  )  ; // Set lineal or no linear material
+    void SetMaterialType  (std::string  )  ; // Set Mechanics, Thermal or Electric
 
-    virtual QString ShowMaterialTime  (  ) = 0 ; // Set Material Time: TimeDependant or not
-    virtual QString ShowMaterialLinear(  ) = 0 ; // Set lineal or no linear material
-    virtual QString ShowMaterialType  (  ) = 0 ; // Set Mechanics, Thermal or Electric
+    std::string GetMaterialTime  (  ) ; // Set Material Time: TimeDependant or not
+    std::string GetMaterialTemp  (  ) ; // Set Material Temp
+    std::string GetMaterialLinear(  ) ; // Set lineal or no linear material
+    std::string GetMaterialType  (  ) ; // Set Mechanics, Thermal or Electric
 
 
 };
