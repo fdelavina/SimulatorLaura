@@ -4,7 +4,7 @@
 #include <dvrmatrix.h>
 #include <materialProperty.h>
 
-class MatElectricProperty: public MaterialProperty
+class MatElectricProperty: private MaterialProperty
 {
 protected:
 
@@ -24,7 +24,11 @@ protected:
 
 public:
 
-    MatElectricProperty(DVRMatrix *_BulkSigmaElectric);
+    MatElectricProperty(DVRMatrix   *_BulkSigmaElectric,
+                        std::string  _MatTime          ,
+                        std::string  _MatPoro          ,
+                        std::string  _MatTem           ,
+                        std::string  _MatLin           );
 
     void       SetSigmaElectric (DVRMatrix *_BulkSigmaElectric);
     DVRMatrix* GetSigmaElectric();
@@ -35,11 +39,38 @@ public:
 };
 
 
-class MatPorosiElectricProperty : public MatElectricProperty
+class MatPorosiElectricProperty : private MatElectricProperty
 {
 protected:
-    DVRMatrix *Cvv //function applied to BulkElectricConductivity
+    DVRMatrix *PoroApplied; //function applied to BulkElectricConductivity in order to take into account porosity
+    //
+    //  PoroApplied = 1-(theta/thetaM)^n
+    //                                      thetaM | 1     |
+    //                                           n | 0.4   |
+    //
+    //
+    //
+    //
+    //
+public:
+    MatPorosiElectricProperty(DVRMatrix *_BulkSigmaElectric,
+                              DVRMatrix *_PoroApplied      );
+
+    void       SetPoroApplied(DVRMatrix *_PoroAppl);
+    DVRMatrix* GetPoroAplied ();
+
+
 };
 
+
+
+
+class MatBulkElectricProperty: private MatElectricProperty
+{
+protected:
+
+public:
+    MatBulkElectricProperty(DVRMatrix *_BulkSigmaElectric);
+};
 
 #endif // MATELECTRICPROPERTY_H
