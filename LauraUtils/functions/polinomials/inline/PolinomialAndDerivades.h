@@ -4,61 +4,107 @@
 #include<cmath>
 #include <functional>
 
-inline float suma(float x,float y)
-{
-    return x+y;
-}
-std::function<float(float,float)> sumafuncion1 = suma;
 
-
-inline float suma2(float x,float y)
-{
-    return 2*x+2*y;
-}
-std::function<float(float,float)> sumafuncion2 = suma2;
-
-inline float Polinomial1(float x,float y,float *c)
+inline float Polinomial1(float *c, float x,float y)
 {
     return c[0]*x+c[1]*y+c[2];
 }
+std::function<float(float*,float,float)> Polinomial1func = Polinomial1;
 
-inline float Polinomial1DerX(float *c)
+
+inline float Polinomial1DerX(float *c, float x,float y)
 {
     return c[0];
 }
-inline float Polinomial1DerY(float *c)
+std::function<float(float*,float,float)> Polinomial1DerXfunc = Polinomial1DerX;
+
+
+inline float Polinomial1DerY(float *c, float x,float y)
 {
     return c[1];
 }
-inline float Polinomial1DerXX()
+std::function<float(float*,float,float)> Polinomial1DerYfunc = Polinomial1DerY;
+
+
+inline float Polinomial1DerXX(float *c, float x,float y)
 {
     return 0.0;
 }
-inline float Polinomial1DerYY()
+std::function<float(float*,float,float)> Polinomial1DerXXfunc = Polinomial1DerXX;
+
+
+inline float Polinomial1DerYY(float *c, float x,float y)
 {
     return 0.0;
 }
-inline float Polinomial1DerXY()
+std::function<float(float*,float,float)> Polinomial1DerYYfunc = Polinomial1DerYY;
+
+
+inline float Polinomial1DerXY(float *c, float x,float y)
 {
     return 0.0;
 }
-inline float Polinomial2(float x,float y,float *c)
+std::function<float(float*,float,float)> Polinomial1DerXYfunc = Polinomial1DerXY;
+
+
+//2sd degree
+inline float Polinomial2(float *c, float x,float y)
 {
     return c[0]*pow(x,2)+c[1]*pow (y,2) + c[2]*x*y
           +c[3]*x + c[4]*y + c[5];
 }
+std::function<float(float*,float,float)> Polinomial2func = Polinomial2;
 
-inline float Polinomial2DerX(float x,float y,float *c)
+
+inline float Polinomial2DerX(float *c, float x,float y)
 {
-    return 2*c[0]*pow(x,1) + c[2]*y +c[3];
+    return 2*c[0]*x + c[2]*y +c[3];
 }
+std::function<float(float*,float,float)> Polinomial2DerXfunc = Polinomial2DerX;
+
+
+inline float Polinomial2DerY(float *c, float x,float y)
+{
+    return 2*c[1]*y + c[2]*x + c[4];
+}
+std::function<float(float*,float,float)> Polinomial2DerYfunc = Polinomial2DerY;
+
+
+inline float Polinomial2DerXX(float *c, float x,float y)
+{
+    return  2*c[0];
+}
+std::function<float(float*,float,float)> Polinomial2DerXXfunc = Polinomial2DerXX;
+
+
+inline float Polinomial2DerYY(float *c, float x,float y)
+{
+    return  2*c[1];
+}
+std::function<float(float*,float,float)> Polinomial2DerYYfunc = Polinomial2DerYY;
+
+
+
+inline float Polinomial2DerXY(float *c, float x,float y)
+{
+    return c[2] ;
+}
+std::function<float(float*,float,float)> Polinomial2DerXYfunc = Polinomial2DerXY;
+
 
 inline float Polinomial3(float x,float y,float *c)
+{          //c0*x^3      +   c1*y^3      +  c2*x^2       +    c3*y          +c4*x           +c5*y^2      + c6*x^2
+    return c[0]*pow(x,3) + c[1]*pow(y,3) + c[2]*pow(x,2) + c[3]*pow(y,1) + c[4]*pow(x,1) + c[5]*pow(y,2) +c[6]*pow(x,2) + c[7]*pow(y,2) + c[8]*x*y +c[9]*x + c[10]*y  +c[11];
+}
+
+inline float Polinomial3DerX(float x,float y,float *c)
 {
-    return c[0]*pow(x,3) + c[1]*pow(y,3) + c[2]*pow(x,2) + c[3]*pow(y,1) + c[4]*pow(x,1) + c[5]*pow(y,2)
-          +c[6]*pow(x,2) + c[7]*pow(y,2) + c[8]*x*y
+    return 3*c[0]*pow(x,2) + 2*c[2]*x +  + c[4] + 2*c[6]*pow(x,2) + c[7]*pow(y,2) + c[8]*x*y
           +c[9]*x + c[10]*y  +c[11];
 }
+
+
+
 inline float Polinomial4(float x,float y,float *c)
 {
     return  c[0 ]*pow(x,4) + c[1 ]*pow(y,4) + c[2 ]*pow(x,3) + c[3 ]*pow(y,1) + c[4 ]*pow(x,2) + c[5 ]*pow(y,2) + c[6]*pow(x,1)+ c[7]*pow(y,3)

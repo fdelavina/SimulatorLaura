@@ -1,12 +1,14 @@
 message("   Reading LauraUtilsMatrices.pri")
 
+
+
 #LAURA Utils Matrices
 
 SOURCES += \
-    $$PWD/dvrmatrix.cpp \
+    $$PWD/dvrmatrix.cpp
 
 
 HEADERS += \
-    $$PWD/dvrmatrix.h \
+    $$PWD/dvrmatrix.h
 
 

@@ -9,11 +9,11 @@ contains(DEFINES, _lAURA_UTILS_FUNC_POL_INLINE)
 
 
 SOURCES += \
-    $$PWD/dvrpolinomial.cpp \
+    $$PWD/dvrpolinomial.cpp
 
 
 
 HEADERS += \
-    $$PWD/dvrpolinomial.h \
+    $$PWD/dvrpolinomial.h
 
 

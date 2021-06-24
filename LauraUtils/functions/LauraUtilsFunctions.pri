@@ -14,13 +14,13 @@ contains(DEFINES, _lAURA_UTILS_FUNC_PORO)
     include(       ../functions/poroFunctions/LauraUtilsFunctionsPoro.pri)
 }
 
-SOURCES += \ \
+SOURCES += \
     $$PWD/dvrfunctionsparameteresand2value.cpp \
     $$PWD/dvrfunctionsparametersand1value.cpp
 
 
 
-HEADERS += \ \
+HEADERS += \
     $$PWD/dvrfunctionsparameteresand2value.h \
     $$PWD/dvrfunctionsparametersand1value.h
 

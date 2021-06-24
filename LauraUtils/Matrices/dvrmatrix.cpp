@@ -1,6 +1,13 @@
 #include <iostream>
 #include "dvrmatrix.h"
 
+DVRMatrix::DVRMatrix()
+{
+    SetParameters(1,1,"undefined");
+
+    IniZeros();
+}
+
 DVRMatrix::DVRMatrix(unsigned int R,unsigned int C,std::string n)
 {
     SetParameters(R,C,n);
@@ -45,6 +52,27 @@ void DVRMatrix::ShowParameters(bool showMatrix)
 
 
 }
+
+unsigned int DVRMatrix::getNumberColumns()
+{
+    return Columns;
+}
+
+unsigned int DVRMatrix::getNumberRows()
+{
+    return Rows;
+}
+
+unsigned int DVRMatrix::getSize()
+{
+    return Size;
+}
+
+float *DVRMatrix::getMatrix()
+{
+    return Matriz;
+}
+
 void DVRMatrix::ShowMatrix()
 {
 

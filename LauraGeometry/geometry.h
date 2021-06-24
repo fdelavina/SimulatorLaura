@@ -1,9 +1,10 @@
 #ifndef GEOMETRY_H
 #define GEOMETRY_H
 
-#include "dvrmatrix.h"
+#include "LauraUtils/Matrices/dvrmatrix.h"
+#include "globalLib/Global/globalLib.h"
 
-class Geometry
+class LAURAGEOMETRYSHARED_EXPORT Geometry
 {
 
     protected:

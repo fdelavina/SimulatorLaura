@@ -1,0 +1,7 @@
+degug
+release
+Makefile
+.Debug
+.Release
+*.pro.user
+*.por.user.*

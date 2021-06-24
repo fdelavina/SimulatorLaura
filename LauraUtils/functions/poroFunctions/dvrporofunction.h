@@ -1,7 +1,7 @@
 #ifndef DVRPOROFUNCTION_H
 #define DVRPOROFUNCTION_H
 
-#include "dvrfunctionsparametersand1value.h"
+#include "functions/dvrfunctionsparametersand1value.h"
 #include <string>
 
 /***********CLASS DVRPoroFunction*****************

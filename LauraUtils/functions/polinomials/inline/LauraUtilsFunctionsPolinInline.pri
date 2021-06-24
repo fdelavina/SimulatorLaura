@@ -2,12 +2,8 @@ message("   Reading LauraUtilsFunctionsPolinInline.pri")
 
 
 
-SOURCES += \
-
-
-
-
 HEADERS += \
-    $$PWD/PolinomialAndDerivades.h \
+    $$PWD/PolinomialAndDerivades.h
 
 
+SOURCES +=

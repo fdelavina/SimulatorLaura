@@ -8,13 +8,13 @@ contains(DEFINES, _lAURA_UTILS_FUNC_PORO_INLINE)
 }
 
 
-SOURCES += \ \
+SOURCES += \
     $$PWD/dvrporofunction.cpp
 
 
 
 
-HEADERS += \ \
+HEADERS += \
     $$PWD/dvrporofunction.h
 
 
