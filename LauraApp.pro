@@ -11,7 +11,8 @@ TEMPLATE = subdirs
 
 
 SUBDIRS = \
-          #LauraCore      \
+          LauraCore      \
+          LauraGraphics  \
           LauraUtils     \
           LauraGeometry  \
           LauraGUI       \

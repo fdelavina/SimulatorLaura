@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     MainWindow mywindow;
     ApplyStyles();
-    QPixmap pixmap(":Laura.jpg");
+    QPixmap pixmap(":images/Laura.JPG");
     QSplashScreen splash(pixmap);
     splash.show();
     app.processEvents();

@@ -16,12 +16,14 @@ private:
     unsigned int DiscretX ;
     unsigned int DiscretY ;
 public:
-    Rectangle(float SX,float SY, float PX,float PY,unsigned int DX,unsigned int DY);
+    Rectangle(float SX,float SY, float PX,float PY,unsigned int DX,unsigned int DY, std::string name);
 
-    void SetGeometryType (              ) override;
-    void NodesCalculation(              ) override;
-    void ShowNodes       (              ) override;
-    void ShowParameters  (bool shownodes) override;
+    void        setName         (std::string name )    override;
+    std::string getName() override;
+    void SetGeometryType ()                     override;
+    void NodesCalculation()                     override;
+    void ShowNodes       ()                     override;
+    void ShowParameters  (bool shownodes)       override;
 
     void SetParameters(float SX,float SY, float PX,float PY ,unsigned int DX,unsigned int DY);
 

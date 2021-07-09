@@ -4,6 +4,11 @@
 #include <QMainWindow>
 #include "globalLib/Global/globalLib.h"
 
+#include "Material/MaterialCreate/materialcreate.h"
+#include "Material/MaterialDelete/materialdelete.h"
+#include "Material/MaterialSet/materialset.h"
+#include "Material/MaterialPlot/materialplot.h"
+
 QT_BEGIN_NAMESPACE
 namespace  Ui
 {
@@ -20,6 +25,16 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui_mainWindow;
+
+    void setConnect();
+
+private slots:
+
+    void setMaterialClickBtn();
+    void createMaterialClickBtn();
+    void deleteMaterialClickBtn();
+    void plotMaterialClickBtn();
+
 };
 #endif // MAINWINDOW_H

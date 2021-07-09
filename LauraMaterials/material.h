@@ -1,7 +1,7 @@
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
-#include <materialProperty.h>
+#include <LauraMaterials/MaterialProperties/materialProperty.h>
 
 /* *********************CLASS Material************************
    ***********************************************************
@@ -24,7 +24,7 @@
 class Material
 {
 private:
-
+    std::string MaterialName;
     std::string MechanicsProperty; //elastic,plastic,thermoplastic
 
     bool TemperatureDependant;
@@ -32,18 +32,30 @@ private:
     bool Porous              ;
 
 
-    MaterialProperty *Mechanic;
-    MaterialProperty *Electric;
-    MaterialProperty *Thermal;
+    MaterialProperty Mechanic;
+    MaterialProperty Electric;
+    MaterialProperty Thermal;
 
 public:
     Material();
 
-     void SetMaterial (MaterialProperty *Mechanic,
-                       MaterialProperty *Electric,
-                       MaterialProperty *Thermal  );
+     void setMaterial (MaterialProperty _Mechanic,
+                       MaterialProperty _Electric,
+                       MaterialProperty _Thermal  );
 
-     void ShowMaterial(                           );
+     void setNameMaterial(std::string _nameMaterial);
+
+     void setMaterialMechanic(MaterialProperty _Mechanic);
+     void setMaterialElectric(MaterialProperty _Electric);
+     void setMaterialTheraml (MaterialProperty _Thermal );
+
+     void getMaterial();
+
+     std::string getMaterialName();
+     MaterialProperty getMaterialMechanic();
+     MaterialProperty getMaterialElectric();
+     MaterialProperty getMaterialThermal();
+
 
 };
 

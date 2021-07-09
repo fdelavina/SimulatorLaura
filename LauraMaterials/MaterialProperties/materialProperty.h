@@ -2,7 +2,7 @@
 #define MATERIALS_H
 
 #include <iostream>
-#include "Matrices/dvrmatrix.h"
+#include "LauraUtils/Matrices/dvrmatrix.h"
 
 
 
@@ -46,6 +46,8 @@ public:
                      std::string _MatTemp,
                      std::string _MatLin ,
                      std::string _MatType);
+
+    MaterialProperty();
 
     void SetMaterialTime  (std::string  )  ; // Set Material Time: TimeDependant or not
     void SetMaterialPoro  (std::string  )  ;

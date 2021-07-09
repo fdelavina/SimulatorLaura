@@ -14,6 +14,15 @@ MaterialProperty::MaterialProperty(std::string _MatTime,
       SetMaterialType  (_MatType);
 }
 
+MaterialProperty::MaterialProperty()
+{
+    SetMaterialTime  ("Undefined");
+    SetMaterialPoro  ("Undefined");
+    SetMaterialTemp  ("Undefined");
+    SetMaterialLinear("Undefined" );
+    SetMaterialType  ("Undefined");
+}
+
 void MaterialProperty::SetMaterialTime(std::string _MatTime)
 {
     MaterialTime = _MatTime;

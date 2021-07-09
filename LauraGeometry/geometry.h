@@ -8,15 +8,20 @@ class LAURAGEOMETRYSHARED_EXPORT Geometry
 {
 
     protected:
+         std::string     Name         ;
          std::string     GeometryType ;
          DVRMatrix       TotalNodes   ;
 
     public:
 
         explicit
-        Geometry(  ): GeometryType( "Empty Geometry" ),TotalNodes(DVRMatrix(0,0,"Empty Matrix")){};
+        Geometry(  ): Name("Undefined"),
+                      GeometryType( "Empty Geometry" ),
+                      TotalNodes(DVRMatrix(0,0,"Empty Matrix"))
+                     {};
 
-
+        virtual void setName (std::string name) = 0;
+        virtual std::string getName () = 0;
         virtual void SetGeometryType  (              ) = 0 ; // Type of Geometry eg Rectangle, Circle,Sphere,etc
         virtual void NodesCalculation (              ) = 0 ; // All nodes in  geometry calculation
         virtual void ShowNodes        (              ) = 0 ; // Show nodes within chosen geometry

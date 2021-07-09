@@ -3,8 +3,10 @@
 
 
 Rectangle :: Rectangle (float SX,float SY, float PX,float PY
-                     ,unsigned int DX,unsigned int DY)
+                     ,unsigned int DX,unsigned int DY, std::string name)
 {
+    Rectangle::setName(name);
+
     Rectangle::SetGeometryType();
     Rectangle::SetParameters(SX,SY,PX,PY,DX,DY);
     this->TotalNodes=DVRMatrix( (this->DiscretX+1)*(this->DiscretY+1),
@@ -13,6 +15,16 @@ Rectangle :: Rectangle (float SX,float SY, float PX,float PY
     Rectangle::NodesCalculation();
     
 
+}
+
+void Rectangle::setName(std::string name)
+{
+    this->Name = name;
+}
+
+std::string Rectangle::getName()
+{
+    return this->Name;
 }
 
  void Rectangle::SetGeometryType()
